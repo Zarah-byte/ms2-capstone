@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Living Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yaldevi:wght@300;400;500;600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Progress dots — fixed top-center, only visible on steps 2–6 -->
+  <nav class="progress hidden" id="progress" aria-label="Onboarding progress">
+    <div class="progress-dot" data-dot="0"></div>
+    <div class="progress-dot" data-dot="1"></div>
+    <div class="progress-dot" data-dot="2"></div>
+    <div class="progress-dot" data-dot="3"></div>
+    <div class="progress-dot" data-dot="4"></div>
+  </nav>
+
+  <div class="onboarding" id="onboarding">
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 0 — Greeting
+         Upper-left flush. Very minimal. Matches wireframe screen 1.
+         ───────────────────────────────────────────────────────── -->
+    <section class="step step--greeting active" id="step-0" aria-label="Greeting">
+      <div class="step-inner">
+        <h1 class="step-headline step-headline--greeting">Hi there</h1>
+        <p class="step-body">
+          You're about to build something that matters.<br>
+          It won't take long.
+        </p>
+        <div class="step-actions">
+          <button class="btn btn-outline" data-next>Begin →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 1 — Welcome / product intro
+         Headline above the image. Matches wireframe screen 2.
+         ───────────────────────────────────────────────────────── -->
+    <section class="step step--welcome" id="step-1" aria-label="Welcome">
+      <div class="step-inner step-inner--centered">
+        <span class="step-eyebrow">The Living Archive</span>
+        <h2 class="step-headline step-headline--welcome">Welcome to</h2>
+        <!-- CSS crosshatch stands in for a photograph -->
+        <div class="media-pattern" aria-hidden="true"></div>
+        <p class="step-body step-body--sm">
+          A quiet space to gather people, memories, and the things
+          that shouldn't be forgotten.
+        </p>
+        <div class="step-actions">
+          <button class="btn btn-outline" data-next>Get started →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 2 — Name
+         "Let's get to know each other." Matches wireframe screen 3.
+         ───────────────────────────────────────────────────────── -->
+    <section class="step" id="step-2" aria-label="Your name">
+      <div class="step-inner step-inner--centered">
+        <h2 class="step-headline step-headline--form">Let's get to know each other.</h2>
+        <p class="step-body step-body--sm">What should we call you?</p>
+        <div class="step-form">
+          <input
+            class="form-input form-input--lg"
+            type="text"
+            id="input-name"
+            autocomplete="given-name"
+            placeholder="Your first name"
+            required
+          >
+          <span class="form-error" id="error-name" role="alert"></span>
+        </div>
+        <div class="step-actions step-actions--row">
+          <button class="btn-link" data-back>← back</button>
+          <button class="btn btn-outline" data-next>Continue →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 3 — Archive name
+         Same header. Matches wireframe screen 4.
+         ───────────────────────────────────────────────────────── -->
+    <section class="step" id="step-3" aria-label="Archive name">
+      <div class="step-inner step-inner--centered">
+        <h2 class="step-headline step-headline--form">Let's get to know each other.</h2>
+        <p class="step-body step-body--sm" id="hint-archive">What would you like to call your archive?</p>
+        <div class="step-form">
+          <input
+            class="form-input form-input--lg"
+            type="text"
+            id="input-archive"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Archive name"
+            required
+          >
+          <span class="form-error" id="error-archive" role="alert"></span>
+        </div>
+        <div class="step-actions step-actions--row">
+          <button class="btn-link" data-back>← back</button>
+          <button class="btn btn-outline" data-next>Continue →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 4 — What to preserve
+         ───────────────────────────────────────────────────────── -->
+    <section class="step" id="step-4" aria-label="What to preserve">
+      <div class="step-inner step-inner--centered">
+        <h2 class="step-headline step-headline--form">Let's get to know each other.</h2>
+        <p class="step-body step-body--sm">What matters most to you right now?</p>
+        <div class="step-choices" role="group" aria-labelledby="label-preserve">
+          <span class="sr-only" id="label-preserve">What to preserve</span>
+          <button class="choice" data-field="preserve" data-value="stories" role="radio" aria-checked="false">Stories &amp; memories</button>
+          <button class="choice" data-field="preserve" data-value="people" role="radio" aria-checked="false">People &amp; relationships</button>
+          <button class="choice" data-field="preserve" data-value="photos" role="radio" aria-checked="false">Photos &amp; objects</button>
+          <button class="choice" data-field="preserve" data-value="all" role="radio" aria-checked="false">All of these</button>
+        </div>
+        <span class="form-error" id="error-preserve" role="alert"></span>
+        <div class="step-actions step-actions--row">
+          <button class="btn-link" data-back>← back</button>
+          <button class="btn btn-outline" data-next>Continue →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 5 — Who it's for
+         ───────────────────────────────────────────────────────── -->
+    <section class="step" id="step-5" aria-label="Who this is for">
+      <div class="step-inner step-inner--centered">
+        <h2 class="step-headline step-headline--form">Let's get to know each other.</h2>
+        <p class="step-body step-body--sm">Who are you keeping this for?</p>
+        <div class="step-choices" role="group" aria-labelledby="label-audience">
+          <span class="sr-only" id="label-audience">Who this is for</span>
+          <button class="choice" data-field="audience" data-value="myself" role="radio" aria-checked="false">Myself</button>
+          <button class="choice" data-field="audience" data-value="family" role="radio" aria-checked="false">My family, now</button>
+          <button class="choice" data-field="audience" data-value="future" role="radio" aria-checked="false">Future generations</button>
+          <button class="choice" data-field="audience" data-value="all" role="radio" aria-checked="false">All of the above</button>
+        </div>
+        <span class="form-error" id="error-audience" role="alert"></span>
+        <div class="step-actions step-actions--row">
+          <button class="btn-link" data-back>← back</button>
+          <button class="btn btn-outline" data-next>Continue →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 6 — Where to begin
+         ───────────────────────────────────────────────────────── -->
+    <section class="step" id="step-6" aria-label="Where to start">
+      <div class="step-inner step-inner--centered">
+        <h2 class="step-headline step-headline--form">Let's get to know each other.</h2>
+        <p class="step-body step-body--sm">Where would you like to start?</p>
+        <div class="step-choices" role="group" aria-labelledby="label-first">
+          <span class="sr-only" id="label-first">Where to start</span>
+          <button class="choice" data-field="firstStep" data-value="person" role="radio" aria-checked="false">Add a person</button>
+          <button class="choice" data-field="firstStep" data-value="story" role="radio" aria-checked="false">Write a story</button>
+          <button class="choice" data-field="firstStep" data-value="photo" role="radio" aria-checked="false">Upload a photo</button>
+          <button class="choice" data-field="firstStep" data-value="explore" role="radio" aria-checked="false">I'll explore first</button>
+        </div>
+        <span class="form-error" id="error-firstStep" role="alert"></span>
+        <div class="step-actions step-actions--row">
+          <button class="btn-link" data-back>← back</button>
+          <button class="btn btn-outline" data-next>Continue →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 7 — "Hi [Name]" / summary
+         Personalized greeting + profile card. Matches wireframe screens 6–7.
+         ───────────────────────────────────────────────────────── -->
+    <section class="step" id="step-7" aria-label="Review">
+      <div class="step-inner step-inner--centered">
+        <h2 class="step-headline step-headline--hi" id="headline-hi">Hi Basic Name</h2>
+        <!-- Profile circle avatar placeholder -->
+        <div class="profile-circle" aria-hidden="true"></div>
+        <!-- Summary rows — populated by renderSummary() -->
+        <div class="summary-card" id="summary-card" aria-live="polite"></div>
+        <div class="step-actions step-actions--row">
+          <button class="btn-link" data-back>← back</button>
+          <button class="btn btn-outline" data-next>Looks good →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────────────────
+         Step 8 — Completion
+         "Hi [Name]" again, with enter button. Matches wireframe screen 7.
+         ───────────────────────────────────────────────────────── -->
+    <section class="step" id="step-8" aria-label="Complete">
+      <div class="step-inner step-inner--centered">
+        <h2 class="step-headline step-headline--hi" id="headline-done">Hi Basic Name</h2>
+        <p class="step-body" id="body-done">
+          Your archive is ready.<br>Everything is waiting for you inside.
+        </p>
+        <div class="step-actions">
+          <button class="btn btn-solid btn-wide" id="btn-enter">Enter the archive</button>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.onboarding -->
+
+  <!-- ─────────────────────────────────────────────────────────
+       Dashboard — shown after onboarding completes
+       ───────────────────────────────────────────────────────── -->
+  <div class="dashboard hidden" id="dashboard">
+    <div class="dashboard-inner">
+      <span class="dash-label" id="dash-archive">The Living Archive</span>
+      <h1 class="dash-title" id="dash-title">Welcome home.</h1>
+      <p class="dash-body">
+        Choose a direction to explore, or open the family tree to begin.
+      </p>
+
+      <div class="direction-cards">
+
+        <div class="dir-card dir-card--01">
+          <div>
+            <span class="dir-card__label">Direction 01</span>
+            <h2 class="dir-card__title">The Living Archive</h2>
+            <p class="dir-card__subtitle">A family tree that looks like a family attic</p>
+          </div>
+          <div class="dir-card__cols">
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Concept</h3>
+              <p>Textured, warm, analog. Photos look like they were scanned from envelopes. Stories appear as handwritten notes.</p>
+            </div>
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Interaction Model</h3>
+              <p>You navigate by opening things — a drawer, a folder, an envelope. Stories are layered like objects in a chest.</p>
+            </div>
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Design Argument</h3>
+              <p>Memory is material. A database erases the patina of time — this interface restores it.</p>
+            </div>
+          </div>
+          <blockquote class="dir-card__quote">
+            "Design a family history interface that feels like inheriting a box of old objects. Every interaction is an act of careful handling."
+          </blockquote>
+          <div class="dir-card__tags">
+            <span class="dir-card__tag">Warm / analog aesthetic</span>
+            <span class="dir-card__tag">Paper, ink, texture</span>
+            <span class="dir-card__tag">Archival metaphor</span>
+            <span class="dir-card__tag">Slow, deliberate navigation</span>
+          </div>
+          <div class="dash-actions">
+            <a class="btn btn-solid" href="Dirsction 01/index.html">Open Direction 01</a>
+          </div>
+        </div>
+
+        <div class="dir-card dir-card--02">
+          <div>
+            <span class="dir-card__label">Direction 02</span>
+            <h2 class="dir-card__title">The Constellation</h2>
+            <p class="dir-card__subtitle">Family as a universe of connected moments</p>
+          </div>
+          <div class="dir-card__cols">
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Concept</h3>
+              <p>People are nodes of light in an open field. Stories are the threads between them. No hierarchy — no top, no root.</p>
+            </div>
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Interaction Model</h3>
+              <p>You drift through the space. People cluster by era, geography, or theme. Clicking a story lights up every person it touches.</p>
+            </div>
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Design Argument</h3>
+              <p>The hierarchical family tree is a colonial artifact. A constellation has no root. Every star is equally present in the dark.</p>
+            </div>
+          </div>
+          <blockquote class="dir-card__quote">
+            "Design a family history interface with no hierarchy and no root. People exist in space, not in rows. The navigation is gravitational."
+          </blockquote>
+          <div class="dir-card__tags">
+            <span class="dir-card__tag">Spatial / non-hierarchical</span>
+            <span class="dir-card__tag">Dark canvas, light nodes</span>
+            <span class="dir-card__tag">Gravitational navigation</span>
+            <span class="dir-card__tag">Story-first topology</span>
+          </div>
+          <div class="dash-actions">
+            <a class="btn btn-solid" href="Direction 02/index.html">Open Direction 02</a>
+          </div>
+        </div>
+
+        <div class="dir-card dir-card--03">
+          <div>
+            <span class="dir-card__label">Direction 03</span>
+            <h2 class="dir-card__title">The Unreliable Narrator</h2>
+            <p class="dir-card__subtitle">An interface that makes disagreement visible</p>
+          </div>
+          <div class="dir-card__cols">
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Concept</h3>
+              <p>Every story has a teller. The interface foregrounds who is speaking and what they don't know. Conflicting memories stack.</p>
+            </div>
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Interaction Model</h3>
+              <p>You read a story in layers. The first is the account. The second is the gaps. The third is the contradiction — another version.</p>
+            </div>
+            <div class="dir-card__col">
+              <h3 class="dir-card__col-heading">Design Argument</h3>
+              <p>Family history is a contested oral tradition. The honest archive doesn't pretend to be authoritative. It shows the seams.</p>
+            </div>
+          </div>
+          <blockquote class="dir-card__quote">
+            "Design a family history interface built around contested memory. Every story is attributed to a specific teller. Gaps are made visible."
+          </blockquote>
+          <div class="dir-card__tags">
+            <span class="dir-card__tag">Layered, multi-perspective</span>
+            <span class="dir-card__tag">Conflict as feature</span>
+            <span class="dir-card__tag">Attribution-first</span>
+            <span class="dir-card__tag">Absence made visible</span>
+          </div>
+          <div class="dash-actions">
+            <a class="btn btn-solid" href="Direction 03/index.html">Open Direction 03</a>
+          </div>
+        </div>
+
+      </div><!-- /.direction-cards -->
+
+      <button class="btn-link" id="btn-reset">Start over</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
