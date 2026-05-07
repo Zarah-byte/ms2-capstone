@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { ReactComponent as Logo } from "../assets/Logo.svg";
 import useAuth from "../hooks/useAuth";
 import { signOut } from "../lib/auth";
 
@@ -43,9 +44,9 @@ function Navbar() {
       >
         <Link
           to={user ? "/archive" : "/"}
-          style={{ color: "#2f241c", fontSize: "1.1rem", fontWeight: 800, textDecoration: "none" }}
+          style={{ display: "flex", alignItems: "center", textDecoration: "none" }}
         >
-          Hearth Archive
+          <Logo height="24" style={{ display: "block" }} aria-label="Logo" />
         </Link>
 
         <div style={{ alignItems: "center", display: "flex", flexWrap: "wrap", gap: "1rem" }}>

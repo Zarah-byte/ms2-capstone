@@ -1,16 +1,32 @@
 @font-face {
-  font-family: "Zarathustra";
-  src: url("Assets/Fonts/zarathustra/zarathustra-v01.otf") format("opentype");
+  font-family: "Piazzolla";
+  src: url("Assets/Fonts/Piazzolla v1.350/Webfonts/Static Fonts/WOFF2/Piazzolla-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Gabarito";
-  src: url("Assets/Fonts/gabarito/Gabarito-Regular.woff2") format("woff2");
+  font-family: "Piazzolla";
+  src: url("Assets/Fonts/Piazzolla v1.350/Webfonts/Static Fonts/WOFF2/Piazzolla-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Jeroky";
+  src: url("Assets/Fonts/jeroky/jeroky-TTF/Jeroky-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Jeroky";
+  src: url("Assets/Fonts/jeroky/jeroky-TTF/Jeroky-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -24,8 +40,8 @@
   --radius-pill: 999px;
   --round-control-size: 58px;
   --round-control-icon-size: 24px;
-  --font-display: "Zarathustra", Georgia, serif;
-  --font-body: "Yaldevi", "Gabarito", Arial, sans-serif;
+  --font-display: "Piazzolla", Georgia, serif;
+  --font-body: "Jeroky", Arial, sans-serif;
 }
 
 *,
@@ -249,14 +265,10 @@ svg {
   display: grid;
   place-items: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: none;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0) 34%),
-    linear-gradient(135deg, #f3f5f5, #d7dddd);
-  box-shadow:
-    inset 0 0 0 2px rgba(135, 148, 150, 0.16),
-    0 2px 8px rgba(0, 0, 0, 0.22);
+  background: var(--glass);
+  box-shadow: var(--shadow);
   cursor: pointer;
   pointer-events: auto;
   transform: translate(-50%, -50%);
@@ -357,8 +369,9 @@ svg {
 }
 
 .tree-logo {
-  font-family: var(--font-display);
-  font-size: 18px;
+  display: block;
+  height: 17px;
+  width: auto;
 }
 
 .tree-ask {
@@ -389,28 +402,44 @@ svg {
 }
 
 .add-btn svg {
+  transform: rotate(45deg);
   transition: transform 180ms ease;
 }
 
 .add-btn[aria-expanded="true"] svg {
-  transform: rotate(45deg);
+  transform: rotate(0deg);
 }
 
 .action-row {
   position: absolute;
-  right: 72px;
-  display: flex;
-  gap: 12px;
-  opacity: 0;
-  transform: translateX(24px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
   pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.action-row.open {
+.action-row .action-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.action-row.open .action-btn:nth-child(1) {
+  transform: translate(calc(-50% - 42px), -72px) scale(1);
   opacity: 1;
-  transform: translateX(0);
   pointer-events: auto;
+}
+
+.action-row.open .action-btn:nth-child(2) {
+  transform: translate(calc(-50% + 42px), -72px) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 40ms;
 }
 
 .modal-backdrop {
