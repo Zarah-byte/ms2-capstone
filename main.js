@@ -282,6 +282,43 @@ function getPinchDistance() {
   return Math.hypot(b.x - a.x, b.y - a.y);
 }
 
+const menuSheet = document.getElementById("menu-sheet");
+const menuSheetName = document.getElementById("menu-sheet-name");
+
+document.getElementById("tree-menu-btn").addEventListener("click", () => {
+  menuSheetName.textContent = state.name || "Name";
+  menuSheet.classList.add("open");
+  menuSheet.setAttribute("aria-hidden", "false");
+});
+
+document.getElementById("menu-sheet-close").addEventListener("click", closeMenuSheet);
+menuSheet.addEventListener("click", (event) => {
+  if (event.target === menuSheet) closeMenuSheet();
+});
+
+function closeMenuSheet() {
+  menuSheet.classList.remove("open");
+  menuSheet.setAttribute("aria-hidden", "true");
+}
+
+const signOutBtn = document.querySelector(".menu-sheet-signout");
+signOutBtn.addEventListener("click", () => {
+  signOutBtn.textContent = "Signing out…";
+  signOutBtn.disabled = true;
+  setTimeout(() => {
+    closeMenuSheet();
+    localStorage.removeItem(STORAGE_KEY);
+    Object.keys(state).forEach((k) => delete state[k]);
+    document.getElementById("bottom-bar").classList.remove("visible");
+    document.getElementById("name-input").value = "";
+    document.getElementById("email-input").value = "";
+    document.getElementById("pin-input").value = "";
+    showScreen("name");
+    signOutBtn.textContent = "Sign Out";
+    signOutBtn.disabled = false;
+  }, 600);
+});
+
 const addBtn = document.getElementById("add-btn");
 const actionRow = document.getElementById("action-row");
 const modal = document.getElementById("member-modal");

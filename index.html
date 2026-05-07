@@ -6,8 +6,8 @@
   <title>The Living Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Yaldevi:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=reference-tree-2">
+  <link href="https://fonts.googleapis.com/css2?family=Yaldevi:wght@300;400;500;600&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=reference-tree-10">
 </head>
 <body>
   <section class="screen" id="name-screen">
@@ -135,6 +135,33 @@
       </div>
     </div>
 
+    <div class="menu-sheet-backdrop" id="menu-sheet" aria-hidden="true">
+      <div class="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu">
+        <div class="menu-sheet-header">
+          <button class="menu-sheet-close" id="menu-sheet-close" type="button" aria-label="Close">&#x2715;</button>
+        </div>
+        <div class="menu-sheet-photo"></div>
+        <p class="menu-sheet-name" id="menu-sheet-name">Name</p>
+        <nav class="menu-sheet-nav">
+          <button type="button">Your Profile</button>
+          <button type="button">Privacy &amp; Access</button>
+          <button type="button">Family Members</button>
+          <button type="button">Story Privacy</button>
+          <button type="button">Archive Display</button>
+          <button type="button">Memory Prompts</button>
+          <button type="button">Photos &amp; Media</button>
+          <button type="button">Data &amp; Export</button>
+          <button type="button">Accessibility</button>
+          <button type="button">Security</button>
+          <button type="button">Help</button>
+          <button type="button">Advanced Settings</button>
+        </nav>
+        <div class="menu-sheet-footer">
+          <button class="menu-sheet-signout" type="button">Sign Out</button>
+        </div>
+      </div>
+    </div>
+
     <div class="modal-backdrop" id="member-modal" aria-hidden="true">
       <form class="member-modal" id="member-form" role="dialog" aria-modal="true" aria-label="Add a family member">
         <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Close">
@@ -152,6 +179,6 @@
     </div>
   </section>
 
-  <script src="main.js?v=reference-tree-2"></script>
+  <script src="main.js?v=reference-tree-10"></script>
 </body>
 </html>

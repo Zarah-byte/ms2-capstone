@@ -510,6 +510,137 @@ svg {
   margin-top: 8px;
 }
 
+.menu-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 7;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+}
+
+.menu-sheet-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-sheet {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: min(380px, calc(100vw - 40px));
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.13), 0 2px 8px rgba(0, 0, 0, 0.05);
+  transform: translateX(calc(100% + 40px));
+  transition: transform 340ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.menu-sheet-backdrop.open .menu-sheet {
+  transform: translateX(0);
+}
+
+.menu-sheet-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 18px 0;
+}
+
+.menu-sheet-close {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  color: var(--ink);
+  opacity: 0.6;
+  transition: opacity 150ms ease;
+}
+
+.menu-sheet-close:hover {
+  opacity: 1;
+}
+
+.menu-sheet-photo {
+  display: block;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  background-image: none;
+  margin: 4px auto 10px;
+  flex-shrink: 0;
+}
+
+.menu-sheet-name {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 24px 14px;
+  color: var(--ink);
+}
+
+.menu-sheet-nav {
+  display: grid;
+  padding: 2px 0 8px;
+}
+
+.menu-sheet-nav button {
+  text-align: left;
+  padding: 8px 24px;
+  font-family: "Mulish", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: color 120ms ease;
+}
+
+.menu-sheet-nav button:hover {
+  color: rgba(5, 5, 5, 0.5);
+}
+
+.menu-sheet-footer {
+  padding: 4px 24px 20px;
+}
+
+.menu-sheet-signout {
+  width: 100%;
+  padding: 14px 24px;
+  font-family: "Mulish", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ink);
+  background: transparent;
+  border: 1.5px solid rgba(5, 5, 5, 0.2);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.menu-sheet-signout:hover {
+  border-color: var(--ink);
+}
+
+.menu-sheet-signout:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
 @media (max-width: 700px) {
   .back-btn {
     top: 20px;
