@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "react:start": "npm --prefix family-tree start",
+    "build": "npm --prefix family-tree run build",
+    "test": "npm --prefix family-tree test"
+  }
+}
