@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm --prefix family-tree install",
-  "buildCommand": "npm --prefix family-tree run build",
-  "outputDirectory": "family-tree/build"
+  "installCommand": "echo \"No install needed for the static prototype\"",
+  "buildCommand": "echo \"Using root static files\"",
+  "outputDirectory": "."
 }
