@@ -265,10 +265,12 @@ svg {
   display: grid;
   place-items: center;
   padding: 0;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.59);
   border-radius: 50%;
-  background: var(--glass);
-  box-shadow: var(--shadow);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.1px);
+  -webkit-backdrop-filter: blur(13.1px);
   cursor: pointer;
   pointer-events: auto;
   transform: translate(-50%, -50%);
