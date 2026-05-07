@@ -1,0 +1,5 @@
+{
+  "installCommand": "npm --prefix family-tree install",
+  "buildCommand": "npm --prefix family-tree run build",
+  "outputDirectory": "family-tree/build"
+}

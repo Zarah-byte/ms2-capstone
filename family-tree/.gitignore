@@ -1,3 +1,4 @@
 # This file tells Git to ignore dependencies and local environment secrets.
 node_modules
 .env
+build
