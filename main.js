@@ -60,7 +60,8 @@ function setNames() {
   document.getElementById("email-screen-name").textContent = name;
   document.getElementById("family-screen-name").textContent = name;
   document.getElementById("pin-screen-name").textContent = name;
-  tree.nodes[0].label = state.name || "You";
+  const selfNode = tree.nodes.find((node) => node.id === "self");
+  if (selfNode) selfNode.label = state.name || "name";
 }
 
 function enterDashboard() {
